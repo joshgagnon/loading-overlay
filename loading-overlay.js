@@ -77,7 +77,7 @@
             divs.push(spinner);
 
             if (options && options.fade_in === true) {
-              _.each(divs, function(e){
+		divs.each(function(e){
                 e.hide().fadeIn();
               });
             }
