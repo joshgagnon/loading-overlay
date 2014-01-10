@@ -10,6 +10,7 @@
     var percentage;
     var methods = {
       init: function(options) {
+	  options = options || {};
         return this.each(function() {
           var $this = $(this),
             data = $this.data(plugin_name);
@@ -25,7 +26,7 @@
               'right': 0,
               'background-color': "#bbbbbb",
               'zIndex': 5000,
-              'opacity': (options && options.no_background === true) ? 0 : 0.5
+              'opacity': (options.no_background === true) ? 0 : 0.5
             })
               .attr({
               'class': 'loading_overlay'
@@ -68,7 +69,7 @@
                 'top': $this.height() / 2 - 32,
                 'width': 64,
                 'height': 64,
-                'background-image': 'url(file-spinner-octo.gif)',
+                  'background-image': 'url(' +(options.img || 'file-spinner-octo.gif') + ')',
                 'background-repeat': 'no-repeat',
                 'opacity': 1
               })
