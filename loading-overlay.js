@@ -17,23 +17,25 @@
           // If the plugin hasn't been initialized yet
           if (!data) {
             var divs = [];
-            var overlay = $('<div/>')
-              .css({
-              'position': 'absolute',
-              'top': 0,
-              'bottom': 0,
-              'left': 0,
-              'right': 0,
-              'background-color': "#bbbbbb",
-              'zIndex': 5000,
-              'opacity': (options.no_background === true) ? 0 : 0.5
-            })
-              .attr({
-              'class': 'loading_overlay'
-            })
-            .appendTo($this);
-            divs.push(overlay);
-
+            var overlay;
+            if(!options.no_background){
+	            overlay = $('<div/>')
+	              .css({
+	              'position': 'absolute',
+	              'top': 0,
+	              'bottom': 0,
+	              'left': 0,
+	              'right': 0,
+	              'background-color': "#bbbbbb",
+	              'zIndex': 5000,
+	              'opacity': (options.no_background === true) ? 0 : 0.5
+	            })
+	              .attr({
+	              'class': 'loading_overlay'
+	            })
+	            .appendTo($this);
+	            divs.push(overlay);
+            }
             if(options && options.title){
               var title = $('<div/>')
                 .addClass('loading_overlay_title')
